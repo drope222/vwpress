@@ -17,7 +17,7 @@ const isHome = computed(() => !!route.data.frontmatter.home);
     <Navbar />
     <section>
       <div class="px-4 mx-auto max-w-7xl">
-        <div class="lg:flex">
+        <div class="p-6 lg:(flex space-x-4 p-0)">
           <Sidebar v-if="!isHome" />
           <main
             id="content-wrapper"
