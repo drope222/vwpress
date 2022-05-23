@@ -18,10 +18,20 @@ code .token.inserted {
 
 div[class*='language-'] {
   position: relative;
-  margin: 1rem -1.5rem;
-  background-color: var(--code-bg-color);
+  border-radius: var(--rounded-box);
+  margin-top: 1rem;
   overflow-x: auto;
+  // font-weight: 600;
 }
+
+div[class*='language-'] {
+  background-color: rgba(var(--primary-200), 0.04);  
+}
+
+.dark div[class*='language-'] {
+  background-color: rgba(var(--primary-200), 0.03);  
+}
+
 
 li > div[class*='language-'] {
   border-radius: 6px 0 0 6px;
@@ -32,7 +42,7 @@ li > div[class*='language-'] {
 @media (min-width: 420px) {
   div[class*='language-'] {
     margin: 1rem 0;
-    border-radius: 6px;
+    border-radius: var(--rounded-box);
   }
 
   li > div[class*='language-'] {
@@ -70,8 +80,17 @@ li > div[class*='language-'] {
   padding: 0;
   line-height: var(--code-line-height);
   font-size: var(--code-font-size);
-  color: #eee;
 }
+
+[class*='language-'] code {
+  color: #24384d;
+}
+
+.dark [class*='language-']  code  {
+  color: #eee;
+  
+}
+
 
 /* Line highlighting */
 
@@ -239,7 +258,7 @@ div[class~='language-vue']:before {
 .token.attr-name,
 .token.namespace,
 .token.deleted {
-  color: #e2777a;
+  color: rgb(var(--primary-200));
 }
 
 .token.function-name {
@@ -256,6 +275,13 @@ div[class~='language-vue']:before {
 .token.class-name,
 .token.constant,
 .token.symbol {
+  color: #b58451;
+}
+
+.dark .token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
   color: #f8c555;
 }
 
@@ -264,7 +290,15 @@ div[class~='language-vue']:before {
 .token.atrule,
 .token.keyword,
 .token.builtin {
-  color: #cc99cd;
+  color: rgb(var(--primary-200));
+}
+
+.dark .token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable  {
+  color: #7ec699;
 }
 
 .token.string,
@@ -272,7 +306,7 @@ div[class~='language-vue']:before {
 .token.attr-value,
 .token.regex,
 .token.variable {
-  color: #7ec699;
+  color: #157f3d;
 }
 
 .token.operator,
@@ -285,7 +319,6 @@ div[class~='language-vue']:before {
 .token.bold {
   font-weight: bold;
 }
-
 .token.italic {
   font-style: italic;
 }

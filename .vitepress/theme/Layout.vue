@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useRoute } from "vitepress";
 import { applyDark } from "./composables/dark"
 import Navbar from "./components/Navbar.vue";
@@ -10,14 +10,18 @@ applyDark()
 
 const route = useRoute();
 const isHome = computed(() => !!route.data.frontmatter.home);
+
+onMounted(()=> {
+  document.body.classList.add('bg-base-100')
+})
 </script>
 <template>
   
   <div class="bg-base-100">
     <Navbar />
     <section>
-      <div class="px-4 mx-auto max-w-7xl">
-        <div class="p-6 lg:(flex space-x-4 p-0)">
+      <div class="px-6 mx-auto max-w-7xl">
+        <div class=" lg:(flex space-x-4 p-0)">
           <Sidebar v-if="!isHome" />
           <main
             id="content-wrapper"
