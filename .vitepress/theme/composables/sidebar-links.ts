@@ -25,8 +25,11 @@ const getActive = () => {
   const route = useRoute();
   const { theme } = useData();  
 
+  if(route.path.includes('404'))
+    return undefined
+
   const activeLink = `https://github.com/${theme.value.repo}/blob/main${route.path.replace('html', 'md')}`;
-  
+
  return activeLink
 }
 
