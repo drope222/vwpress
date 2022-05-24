@@ -1,3 +1,7 @@
+<script setup>
+import { WButton } from "vue-windi"
+</script>
+
 # Getting Started
 
 
@@ -36,7 +40,23 @@ import { WButton } from "vue-windi"
 ```
 
 Button component
+ <br /> <br />
+
+ <div class="flex gap-3">
+
+<WButton>Submit</WButton>    
+<WButton loading >Loading</WButton>
+<WButton disabled> Disabled </WButton>
+<WButton variant="outline"> Outline </WButton>
+<WButton variant="transparent"> Transparent </WButton>
+</div>
+
 
 ```vue
-<WButton> Submit </WButton>
+<WButton>Submit</WButton>    
+<WButton loading >Loading</WButton>
+<WButton disabled> Disabled </WButton>
+<WButton variant="outline"> Outline </WButton>
+<WButton variant="transparent"> Transparent </WButton>
 ```
+

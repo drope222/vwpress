@@ -9,7 +9,7 @@ actionText: Get Started
 actionLink: /docs/getting-started
 
 altActionText: Components
-altActionLink: /components/
+altActionLink: /docs/getting-started
 
 newsColor: primary
 newsTitle: 😎 New vitepress template using VueWindi
