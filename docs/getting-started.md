@@ -4,10 +4,10 @@ import { WButton } from "vue-windi"
 
 # Getting Started
 
-
 ## Install
 
 Install the package
+
 ```js
 npm i vue-windi
 ```
@@ -17,46 +17,45 @@ npm i vue-windi
 Then add vueWindi to your windi.config.js files:
 
 ```js
-import vueWindi from "vue-windi/plugin"
+import vueWindi from "vue-windi/plugin";
 
 export default {
-    darkMode: 'class',
-    plugins: [vueWindi],
-  
-}
+  darkMode: "class",
+  plugins: [vueWindi],
+};
 ```
 
 ## Import component
 
  <br />
 
- Import button component
+Import button component
 
 ```vue
 <script>
-import { WButton } from "vue-windi"
-
+import { WButton } from "vue-windi";
 </script>
 ```
 
+## Button component
+
 Button component
- <br /> <br />
+<br /> <br />
 
  <div class="flex gap-3">
 
-<WButton>Submit</WButton>    
-<WButton loading >Loading</WButton>
+<WButton>Submit</WButton>  
+<WButton loading>Loading</WButton>
 <WButton disabled> Disabled </WButton>
-<WButton variant="outline"> Outline </WButton>
-<WButton variant="transparent"> Transparent </WButton>
+<WButton variant="outline">Outline</WButton>
+<WButton variant="transparent">Transparent</WButton>
+
 </div>
 
-
 ```vue
-<WButton>Submit</WButton>    
-<WButton loading >Loading</WButton>
-<WButton disabled> Disabled </WButton>
-<WButton variant="outline"> Outline </WButton>
-<WButton variant="transparent"> Transparent </WButton>
+<WButton>Submit</WButton>
+<WButton loading>Loading</WButton>
+<WButton disabled>Disabled</WButton>
+<WButton variant="outline">Outline</WButton>
+<WButton variant="transparent">Transparent</WButton>
 ```
-
