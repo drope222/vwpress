@@ -6,5 +6,9 @@ const toggleSidebar = () =>{
     isOpen.value = !isOpen.value ;
 }
 
+const closeSidebar = () => {
+    isOpen.value = false;
+}
 
-export { isOpen, toggleSidebar }
+
+export { isOpen, toggleSidebar, closeSidebar }

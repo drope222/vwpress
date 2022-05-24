@@ -40,7 +40,7 @@ const hasLogo = computed(() => data.theme.logo !== undefined);
             />
           </transition>
           <span
-            class="self-center text-lg font-semibold whitespace-nowrap text-primaryFg"
+            class="self-center text-lg font-semibold whitespace-nowrap"
             >{{ data.site.title }}</span
           >
         </a>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useData, useRoute } from "vitepress";
-import { isOpen, toggleSidebar } from "../composables/sidebar";
+import { isOpen, toggleSidebar, closeSidebar } from "../composables/sidebar";
 import { windowWidth } from "../composables/window-width";
 import { useSidebar } from "../composables/sidebar-links";
 import { WMenu, WButton } from "vue-windi";
@@ -54,7 +54,7 @@ const isHome = computed(() => !!route.data.frontmatter.home);
             <WButton
               menu-item
               v-for="child in parent.children"
-              @click="toggleSidebar"
+              @click="closeSidebar"
               tag="a"
               :href="child.link"
               >{{ child.text }}</WButton

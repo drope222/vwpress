@@ -10,7 +10,6 @@ const useSidebar = () => {
 
   for (const key in sidebarLink) {
     const parent = sidebarLink[key];
-    console.log(sidebarLink[key].text)
     sidebarLinks[parent.text] = {text: sidebarLink[key].text, children: []};
     for (const key in parent.children) {
       const children = Object.assign({}, parent.children[key]);
