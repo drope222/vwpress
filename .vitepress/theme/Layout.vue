@@ -5,7 +5,7 @@ import { applyDark } from "./composables/dark"
 import Navbar from "./components/Navbar.vue";
 import Sidebar from "./components/Sidebar.vue";
 import Home from "./components/Home.vue";
-
+import Doc from "./components/Doc.vue"
 applyDark()
 
 const route = useRoute();
@@ -28,14 +28,9 @@ onMounted(()=> {
             class="flex-auto w-full min-w-0 lg:static lg:max-h-full lg:overflow-visible"
           >
             <Home v-if="isHome" />
-
-            <div v-else class="flex w-full">
-              <div
-                class="flex-auto min-w-0 max-w-4xl lg:px-8 "
-              >
-                <Content />
-              </div>
-            </div>
+            <Doc v-else> 
+                 <Content />
+            </Doc>     
           </main>
         </div>
       </div>
