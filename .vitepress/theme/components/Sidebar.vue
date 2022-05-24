@@ -54,6 +54,7 @@ const isHome = computed(() => !!route.data.frontmatter.home);
             <WButton
               menu-item
               v-for="child in parent.children"
+              @click="toggleSidebar"
               tag="a"
               :href="child.link"
               >{{ child.text }}</WButton
