@@ -6,6 +6,7 @@ import NotFound from './NotFound.vue'
  import './styles/code.css'
  import './styles/custom-blocks.css'
  import './styles/layout.css'
+ //import './styles/scrollbar.css'
 
 import 'virtual:windi.css'
 

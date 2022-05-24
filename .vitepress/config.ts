@@ -10,7 +10,6 @@ export default defineConfig({
     sidebar: {
 
       '/': getGuideSidebar(),
-      '/config/': getGuideSidebar()
     }
   }, 
 })
@@ -21,6 +20,16 @@ function getGuideSidebar() {
       text: 'Introduction',
       children: [
         { text: 'Getting Started', link: '/docs/getting-started' },
+        { text: 'Theme', link: '/docs/theme' },
+      ]
+    },
+    {
+      text: 'Components',
+      children: [
+        { text: 'Button', link: '/docs/button' },
+        { text: 'Dropdown', link: '/docs/dropdown' },
+        { text: 'Menu', link: '/docs/menu' },
+        { text: 'Modal', link: '/docs/menu' },
       ]
     }
   ]

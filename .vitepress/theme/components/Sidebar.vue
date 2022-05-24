@@ -1,40 +1,89 @@
-<template>
-  <aside
-    class="hidden md:fixed inset-0 z-30 flex-none  w-72 h-screen lg:static lg:h-auto lg:overflow-y-visible lg:pt-0 lg:w-48 lg:block border-r bg"
-  >
-    <div
-      id="navWrapper"
-      class="overflow-hidden overflow-y-auto z-20 h-full bg-primaryBg scrolling-touch max-w-2xs lg:h-screen lg:block lg:sticky top:24 lg:top-12 lg:mr-0"
-    >
-      <nav
-        id="nav"
-        class="pt-16 px-1 pl-3 lg:pl-0 lg:pt-2 overflow-y-auto font-medium text-base lg:text-sm pb-10 lg:pb-20 sticky?lg:h-(screen-18)"
-        aria-label="Docs navigation"
-      >
-        <ul class="mb-0 list-unstyled">
-          <li class="mt-8">
-            <h5
-              class="mb-2 text-sm font-semibold tracking-wide text-primaryFg uppercase lg:text-xs"
-            >
-              Getting started
-            </h5>
-         
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </aside>
-</template>
+<script setup lang="ts">
+import { computed } from "vue";
+import { useData, useRoute } from "vitepress";
+import { isOpen, toggleSidebar } from "../composables/sidebar";
+import { windowWidth } from "../composables/window-width";
+import { useSidebar } from "../composables/sidebar-links";
+import { WMenu, WButton } from "vue-windi";
+import { IconArrowBack } from "./icons";
+import NavbarLinks from "./NavbarLinks.vue";
+import BackDrop from "./BackDrop.vue";
 
-<script>
-export default {
-  methods: {
-        sidebarToggler(){
-    }
-  
-  }
-};
+const { isLgSize } = windowWidth();
+const { sidebarLinks } = useSidebar();
+const { theme } = useData();
+
+const route = useRoute();
+const isHome = computed(() => !!route.data.frontmatter.home);
 </script>
-
+<template>
+  <BackDrop @click="toggleSidebar" :show="isOpen" />
+  <transition name="sidebar-slide">
+    <aside
+      v-show="isOpen || isLgSize"
+      :class="{ '!lg:hidden': isHome }"
+      class="fixed inset-0 z-40 flex-none w-72 h-screen bg-base-100 border-r lg:(z-30 static h-auto overflow-y-visible pt-0 w-62 block)"
+    >
+      <div
+        class="lg:hidden flex items-center justify-between h-$navbar-height bg-primary-200/10 px-2"
+      >
+        <WButton
+          @click="toggleSidebar"
+          variant="transparent"
+          color="secondary"
+          class="!fill-base-text"
+        >
+          <IconArrowBack />
+        </WButton>
+        <NavbarLinks />
+      </div>
+      <div
+        class="overflow-hidden overflow-y-auto h-full scrolling-touch max-w-2xs h-screen lg:(fixed mr-0 w-62)"
+      >
+        <nav
+          class="pt-16 px-1 pl-3 overflow-y-auto text-base lg:(pl-0 pt-2 text-sm pb-10 pb-20 h-(screen-18))"
+          aria-label="Docs navigation"
+        >
+          <WMenu
+            v-for="parent in sidebarLinks"
+            
+            padding
+            class="w-full shadow-0"
+          >
+            <span class="menu-title"> {{ parent.text }}</span>
+            <WButton
+              menu-item
+              v-for="child in parent.children"
+              tag="a"
+              :href="child.link"
+              >{{ child.text }}</WButton
+            >
+          </WMenu>
+        </nav>
+      </div>
+    </aside>
+  </transition>
+</template>
 <style>
+@media (max-width: 1024px) {
+  .sidebar-slide-enter-active {
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .sidebar-slide-leave-active {
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .sidebar-slide-enter-from.right,
+  .sidebar-slide-leave-to.right {
+    transform: translate(100%);
+    opacity: 0;
+  }
+
+  .sidebar-slide-enter-from,
+  .sidebar-slide-leave-to {
+    transform: translate(-100%);
+    opacity: 0;
+  }
+}
 </style>

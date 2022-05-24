@@ -17,12 +17,12 @@ onMounted(()=> {
 </script>
 <template>
   
-  <div class="bg-base-100">
+  <div class="bg-base-100 h-full">
     <Navbar />
     <section>
-      <div class="px-6 mx-auto max-w-7xl">
+      <div class="px-6 mx-auto max-w-7xl pt-$navbar-height">
         <div class=" lg:(flex space-x-4 p-0)">
-          <Sidebar v-if="!isHome" />
+          <Sidebar  />
           <main
             id="content-wrapper"
             class="flex-auto w-full min-w-0 lg:static lg:max-h-full lg:overflow-visible"
@@ -31,7 +31,7 @@ onMounted(()=> {
 
             <div v-else class="flex w-full">
               <div
-                class="flex-auto pt-6 min-w-0 max-w-4xl lg:px-8 lg:pt-10 pb:12 xl:pb-24 lg:pb-16 mb-10"
+                class="flex-auto min-w-0 max-w-4xl lg:px-8 "
               >
                 <Content />
               </div>

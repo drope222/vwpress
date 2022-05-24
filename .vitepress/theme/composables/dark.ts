@@ -1,8 +1,8 @@
-import { ref, onMounted } from "vue"
+import { ref, onMounted, computed } from "vue"
 
 const isDark = ref<boolean>(false)
 
-
+const isBrowser = () => typeof window !== "undefined"
 
 const setDark = () => {
     const html = document.getElementsByTagName("html")[0];    
