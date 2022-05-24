@@ -250,8 +250,11 @@ div[class~='language-vue']:before {
   color: #999;
 }
 
-.token.punctuation {
+.dark .token.punctuation {
   color: #ccc;
+}
+.token.punctuation {
+  color: #494949;
 }
 
 .token.tag,
@@ -310,6 +313,12 @@ div[class~='language-vue']:before {
 }
 
 .token.operator,
+.token.entity,
+.token.url {
+  color: #000;
+}
+
+.dark .token.operator,
 .token.entity,
 .token.url {
   color: #67cdcc;
