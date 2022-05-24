@@ -42,7 +42,7 @@ import { WButton } from "vue-windi";
 Button component
 <br /> <br />
 
- <div class="flex gap-3">
+ <div class="flex flex-wrap gap-3">
 
 <WButton>Submit</WButton>  
 <WButton loading>Loading</WButton>
