@@ -20,16 +20,16 @@ function getGuideSidebar() {
       text: 'Introduction',
       children: [
         { text: 'Getting Started', link: '/docs/getting-started' },
-        { text: 'Theme', link: '/docs/theme' },
+        { text: 'page 404', link: '/docs/404' },
       ]
     },
     {
-      text: 'Components',
+      text: 'Something',
       children: [
-        { text: 'Button', link: '/docs/button' },
-        { text: 'Dropdown', link: '/docs/dropdown' },
-        { text: 'Menu', link: '/docs/menu' },
-        { text: 'Modal', link: '/docs/menu' },
+        { text: 'Item 1', link: '/docs/item-one' },
+        { text: 'Item 2', link: '/docs/item-two' },
+        { text: 'Item 3', link: '/docs/item-three' },
+        { text: 'Item 4', link: '/docs/item-four' },
       ]
     }
   ]

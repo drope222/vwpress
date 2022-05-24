@@ -1,94 +1,41 @@
 # Getting Started
 
 
-## Overview
+## Install
 
-WindiCSS config
+Install the package
 ```js
-export default defineConfig({
-  plugins: [
-    WindiCSS(),
-  ],
-});
+npm i vue-windi
 ```
 
  <br />
 
-Import VueWindi WButton
+Then add vueWindi to your windi.config.js files:
 
 ```js
-import WindiCSS from 'vite-plugin-windicss'
+import vueWindi from "vue-windi/plugin"
 
 export default {
-  plugins: [
-    WindiCSS(),
-  ],
+    darkMode: 'class',
+    plugins: [vueWindi],
+  
 }
 ```
 
+## Import component
+
  <br />
 
- Button component
+ Import button component
 
 ```vue
-<WButton> Submit </WButton>
-```
-WindiCSS config
-```js
-export default defineConfig({
-  plugins: [
-    WindiCSS(),
-  ],
-});
+<script>
+import { WButton } from "vue-windi"
+
+</script>
 ```
 
- <br />
-
-Import VueWindi WButton
-
-```js
-import WindiCSS from 'vite-plugin-windicss'
-
-export default {
-  plugins: [
-    WindiCSS(),
-  ],
-}
-```
-
- <br />
-
- Button component
-
-```vue
-<WButton> Submit </WButton>
-```
-WindiCSS config
-```js
-export default defineConfig({
-  plugins: [
-    WindiCSS(),
-  ],
-});
-```
-
- <br />
-
-Import VueWindi WButton
-
-```js
-import WindiCSS from 'vite-plugin-windicss'
-
-export default {
-  plugins: [
-    WindiCSS(),
-  ],
-}
-```
-
- <br />
-
- Button component
+Button component
 
 ```vue
 <WButton> Submit </WButton>
