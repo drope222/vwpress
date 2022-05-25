@@ -11,7 +11,6 @@ import BackDrop from "./BackDrop.vue";
 
 const { isLgSize } = windowWidth();
 const { sidebarLinks } = useSidebar();
-const { theme } = useData();
 
 const route = useRoute();
 const isHome = computed(() => !!route.data.frontmatter.home);
@@ -50,6 +49,7 @@ const isHome = computed(() => !!route.data.frontmatter.home);
             padding
             class="w-full shadow-0"
           >
+          
             <span class="menu-title"> {{ parent.text }}</span>
             <WButton
               menu-item
