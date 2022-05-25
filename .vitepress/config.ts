@@ -19,8 +19,7 @@ function getGuideSidebar() {
     {
       text: 'Introduction',
       children: [
-        { text: 'Getting Started', link: '/docs/getting-started' },
-        { text: 'page 404', link: '/docs/404' },
+        { text: 'Getting Started', link: '/docs/getting-started' },       
       ]
     },
     {
@@ -30,6 +29,7 @@ function getGuideSidebar() {
         { text: 'Item 2', link: '/docs/item-two' },
         { text: 'Item 3', link: '/docs/item-three' },
         { text: 'Item 4', link: '/docs/item-four' },
+        { text: 'page 404', link: '/docs/404' },
       ]
     }
   ]
