@@ -1,27 +1,30 @@
 import { useData, useRoute } from "vitepress";
+import { computed } from "vue";
 
 const useSidebar = () => {
   const { theme } = useData();
 
   //get links of sidebar
-  const sidebarLink = theme.value.sidebar["/"];
+  const configSidebar = theme.value.sidebar["/"];
 
-  // need fix this type annotation
-  const sidebarLinks: {[key: string]: { [key: string]: any } }= {};
+  const sidebarLinks = []
 
-  for (const key in sidebarLink) {
-    const parent = sidebarLink[key];
-    sidebarLinks[parent.text] = {text: sidebarLink[key].text, children: []};
+  for (const key in configSidebar) {
+    const parent = configSidebar[key]; 
+    const children: Object[] = []
+    const parentLink = {text: configSidebar[key].text, children}   
+
     for (const key in parent.children) {
-      const children = Object.assign({}, parent.children[key]);
-      sidebarLinks[parent.text]['children'].push(children);
+      const children = Object.assign({}, parent.children[key]);      
+      parentLink.children.push(children)
+    
     }
+    sidebarLinks.push(parentLink);
   }
-
   return { sidebarLinks }
 };
 
-const getActive = () => {
+const getActive = computed(() => {
   const route = useRoute();
   const { theme } = useData();  
 
@@ -31,6 +34,9 @@ const getActive = () => {
   const activeLink = `https://github.com/${theme.value.repo}/blob/main${route.path.replace('html', 'md')}`;
 
  return activeLink
-}
+})
+
+
+
 
 export { useSidebar, getActive };
