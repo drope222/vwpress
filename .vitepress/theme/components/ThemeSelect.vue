@@ -1,0 +1,49 @@
+<script setup lang="ts">
+import { ref } from "vue";
+import { WDropdown, WMenu, WButton } from "vue-windi";
+import { IconColorSwatch } from "./icons";
+
+const selectedColor = ref("theme-default");
+
+function changeColor(color: string) {
+  document.documentElement.classList.remove(selectedColor.value);
+  selectedColor.value = color;
+  document.documentElement.classList.add(color);
+}
+</script>
+<template>
+  <WDropdown placement="bottom-end">
+    <template #trigger="{ active }">
+      <WButton variant="transparent" color="secondary" class="stroke-base-text">
+        <IconColorSwatch />
+      </WButton>
+    </template>
+
+    <!-- horizontal="md" -->
+    <WMenu horizontal="md" compact rounded class="w-auto !bg-base-200">
+      <WButton menu-item @click="changeColor('theme-default')"
+        ><span class="theme-blue rounded-[0.5rem] bg-blue-700 h-7 w-7"></span>
+      </WButton>
+      <WButton menu-item @click="changeColor('theme-teal')"
+        ><span
+          class="theme-teal rounded-$rounded-btn bg-teal-700 h-7 w-7"
+        ></span>
+      </WButton>
+      <WButton menu-item @click="changeColor('theme-rose')"
+        ><span
+          class="theme-rose rounded-$rounded-btn bg-rose-700 h-7 w-7"
+        ></span>
+      </WButton>
+      <WButton menu-item @click="changeColor('theme-violet')"
+        ><span
+          class="theme-violet rounded-$rounded-btn bg-violet-700 h-7 w-7"
+        ></span>
+      </WButton>
+      <WButton menu-item @click="changeColor('theme-orange')"
+        ><span
+          class="theme-orange rounded-$rounded-btn bg-orange-700 h-7 w-7"
+        ></span>
+      </WButton>
+    </WMenu>
+  </WDropdown>
+</template>

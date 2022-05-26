@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
 import { WButton } from "vue-windi";
+import { IconLogo } from "./icons";
 const { frontmatter } = useData();
 const data = frontmatter.value;
+
+
 </script>
 <template>
   <div class="mb-12 md:mb-14">
+
+    <IconLogo v-if="!data.heroImage" class="mx-auto h-20" color="fill-primary-200"  />
     <img
-      v-if="data.heroImage"
+      v-else
       :src="data.heroImage"
       class="mx-auto mb-4 h-20"
     />

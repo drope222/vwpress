@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: logo.svg
+# heroImage: logo.svg
 heroAlt: Logo image
 heroText: VWPress
 tagline: VueWindi Vitepress Template
@@ -13,7 +13,7 @@ altActionLink: /docs/getting-started
 
 newsColor: primary
 newsTitle: 😎 New vitepress template using VueWindi
-newsLink: nadayet.html
+newsLink: /docs/getting-started.html
 
 features:
   - title: Simplicity First

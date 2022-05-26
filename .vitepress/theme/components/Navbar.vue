@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { isOpen, toggleSidebar } from "../composables/sidebar";
-import { IconMenu, IconClose } from "./icons";
+import { IconLogo, IconMenu, IconClose } from "./icons";
 
 import NavbarLinks from "./NavbarLinks.vue";
 import { useData } from "vitepress";
@@ -12,14 +12,16 @@ const data = {
   theme: theme.value,
 };
 
-const hasLogo = computed(() => data.theme.logo !== undefined);
+const hasLogo = computed(() => data.theme.logo !== undefined );
+
+
 </script>
 <template>
   <nav
     class="flex fixed h-$navbar-height top-0 pr-2 z-40 flex-none py-3 mx-auto w-full bg-base-100 border-b"
   >
     <div
-      class="flex justify-between items-center px-3 mx-auto w-full max-w-8xl lg:px-8"
+      class="flex justify-between items-center px-3 mx-auto w-full max-w-8xl lg:px-4"
     >
       <div class="flex">
         <button
@@ -33,8 +35,10 @@ const hasLogo = computed(() => data.theme.logo !== undefined);
         </button>
         <a class="flex gap-3 items-center" href="/">
           <transition name="bounce" appear>
+
+            <IconLogo v-if="!hasLogo" class="h-7" color="fill-primary-200" />
             <img
-              v-if="hasLogo"
+              v-else
               :src="`${data.theme.logo}`"
               class="mx-auto h-7"
             />

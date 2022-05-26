@@ -5,6 +5,7 @@ import { IconLight, IconDark, IconGithub } from "./icons";
 import { WButton } from "vue-windi";
 
 import { useData } from "vitepress";
+import ThemeSelect from "./ThemeSelect.vue";
 const { theme } = useData();
 const data = {
   theme: theme.value,
@@ -18,6 +19,7 @@ const hasRepo = computed(() => data.theme.repo !== undefined);
 </script>
 <template>
     <div v-if="isNavIcons" class="md:flex md:order-2">
+        
         <WButton
           v-if="hasRepo"
           tag="a"
@@ -29,6 +31,7 @@ const hasRepo = computed(() => data.theme.repo !== undefined);
         >
           <IconGithub />
         </WButton>
+        <ThemeSelect />
         <WButton
           variant="transparent"
           color="secondary"
