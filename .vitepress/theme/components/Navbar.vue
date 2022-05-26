@@ -19,7 +19,7 @@ const hasLogo = computed(() => data.theme.logo !== undefined);
     class="flex fixed h-$navbar-height top-0 pr-2 z-40 flex-none py-3 mx-auto w-full bg-base-100 border-b"
   >
     <div
-      class="flex justify-between items-center px-3 mx-auto w-full max-w-7xl lg:px-4"
+      class="flex justify-between items-center px-3 mx-auto w-full max-w-8xl lg:px-8"
     >
       <div class="flex">
         <button
