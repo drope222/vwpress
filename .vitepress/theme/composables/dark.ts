@@ -1,23 +1,27 @@
 import { ref, onMounted } from "vue"
 
-const isDark = ref<boolean>(false)
+const useDark = () =>{
+    
+    const isDark = ref<boolean>(false)
 
-const setDark = () => {
-    const html = document.getElementsByTagName("html")[0];    
-    html.classList.remove(isDark.value ? 'dark' : 'light');
-    isDark.value = !isDark.value;
-    localStorage.setItem("dark", isDark.value ?  'dark' : 'light');
-    html.classList.add(isDark.value ? 'dark' : 'light');    
+    onMounted(() => {
+        const storaged = localStorage.getItem('dark')
+
+        if(storaged !== null)
+            isDark.value = storaged === 'dark' ?? true  
+
+        document.documentElement.classList.add(isDark.value ? 'dark' : 'light')
+    })
+
+    function setDark() {
+        document.documentElement.classList.remove(isDark.value ? 'dark' : 'light');
+        isDark.value = !isDark.value;
+        document.documentElement.classList.add(isDark.value ? 'dark' : 'light'); 
+        localStorage.setItem("dark", isDark.value ?  'dark' : 'light');   
+    }
+    
+    return { isDark, setDark }
+
 }
 
-const applyDark = () => {
-    onMounted(()=> {
-        isDark.value = localStorage.getItem('dark') === null ? false : localStorage.getItem('dark') === 'dark' ? true : false
-      
-          const html = document.getElementsByTagName("html")[0];    
-          html.classList.add(isDark.value ? 'dark' : 'light'); 
-   })
-   
-}
-
-export { isDark, setDark, applyDark }
+export { useDark }

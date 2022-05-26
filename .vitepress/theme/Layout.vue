@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { computed, onMounted } from "vue";
 import { useRoute } from "vitepress";
-import { applyDark } from "./composables/dark";
 import Navbar from "./components/Navbar.vue";
 import Sidebar from "./components/Sidebar.vue";
 import Home from "./components/Home.vue";
 import Doc from "./components/Doc.vue";
 import TableOfContents from "./components/TableOfContents.vue";
-applyDark();
 
 const route = useRoute();
 const isHome = computed(() => !!route.data.frontmatter.home);

@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
-import { isDark, setDark } from "../composables/dark";
+import { useDark } from "../composables/dark";
 import { windowWidth  } from "../composables/window-width"
 import { IconLight, IconDark, IconGithub } from "./icons";
 import { WButton } from "vue-windi";
 import { useData } from "vitepress";
 import ThemeSelect from "./ThemeSelect.vue";
 
+const isNavIcons = ref(false);
+const { theme } = useData();
 const { isMdSize } = windowWidth();
+const { isDark, setDark } = useDark();
+
 
 const props = defineProps({
   component: {
@@ -16,12 +20,12 @@ const props = defineProps({
   }
 })
 
-const { theme } = useData();
+
 const data = {
   theme: theme.value,
 };
 
-const isNavIcons = ref(false);
+
 onMounted(() => {
   isNavIcons.value = true;
 });
@@ -38,18 +42,13 @@ const showRepo = computed(() => {
   if(props.component === "sidebar")
     return true
 
-
-return false
- 
-    
-
+  return false 
 })
 
 
 </script>
 <template>
-    <div v-if="isNavIcons" class="md:flex md:order-2">
-        
+    <div v-if="isNavIcons" class="md:flex md:order-2">        
         <WButton
           v-if="showRepo"
           tag="a"
