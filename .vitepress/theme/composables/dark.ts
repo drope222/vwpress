@@ -1,4 +1,4 @@
-import { ref, onMounted, computed } from "vue"
+import { ref, onMounted } from "vue"
 
 const isDark = ref<boolean>(false)
 
