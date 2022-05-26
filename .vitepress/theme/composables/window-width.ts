@@ -11,12 +11,19 @@ export function windowWidth() {
   });
   onUnmounted(() => window.removeEventListener("resize", onWidthChange));
 
-  const isLgSize = computed(() => {
-    if (windowWidth.value && windowWidth.value >= 1024 && windowWidth.value) {
+  const isMdSize = computed(() => {
+    if (windowWidth.value && windowWidth.value >= 768) {
       return true;
     }
     return false;
   });
 
-  return { isLgSize };
+  const isLgSize = computed(() => {
+    if (windowWidth.value && windowWidth.value >= 1024) {
+      return true;
+    }
+    return false;
+  });
+
+  return { isMdSize, isLgSize };
 }

@@ -34,7 +34,7 @@ const isHome = computed(() => !!route.data.frontmatter.home);
         >
           <IconArrowBack />
         </WButton>
-        <NavbarLinks />
+        <NavbarLinks component="sidebar" />
       </div>
       <div
         class="overflow-hidden overflow-y-auto h-full scrolling-touch max-w-2xs h-screen lg:(fixed mr-0 w-62)"
