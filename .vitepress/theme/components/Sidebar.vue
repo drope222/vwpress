@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useData, useRoute } from "vitepress";
+import { useRoute } from "vitepress";
 import { isOpen, toggleSidebar, closeSidebar } from "../composables/sidebar";
 import { windowWidth } from "../composables/window-width";
 import { useSidebar } from "../composables/sidebar-links";
@@ -21,7 +21,7 @@ const isHome = computed(() => !!route.data.frontmatter.home);
     <aside
       v-show="isOpen || isLgSize"
       :class="{ '!lg:hidden': isHome }"
-      class="fixed inset-0 z-40 flex-none w-72 h-screen bg-base-100 border-r lg:(z-30 static h-auto overflow-y-visible pt-0 w-62 block)"
+      class="fixed inset-0 z-40 flex-none w-72 h-screen bg-base-100 border-r lg:(z-30 static h-auto overflow-y-visible  w-62 block)"
     >
       <div
         class="lg:hidden flex items-center justify-between h-$navbar-height bg-primary-200/10 px-2"
@@ -40,14 +40,14 @@ const isHome = computed(() => !!route.data.frontmatter.home);
         class="overflow-hidden overflow-y-auto h-full scrolling-touch max-w-2xs h-screen lg:(fixed mr-0 w-62)"
       >
         <nav
-          class="pt-16 px-1 pl-3 overflow-y-auto text-base lg:(pl-0 pt-2 text-sm pb-10 pb-20 h-(screen-18))"
+          class="pt-2 px-1 pl-3 overflow-y-auto text-base lg:(pl-0 pt-9 text-sm pb-10 h-(screen-18))"
           aria-label="Docs navigation"
         >
           <WMenu
             v-for="parent in sidebarLinks"
             
             padding
-            class="w-full shadow-0"
+            class="w-full shadow-0 pt-0"
           >
           
             <span class="menu-title"> {{ parent.text }}</span>
