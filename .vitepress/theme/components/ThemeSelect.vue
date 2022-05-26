@@ -4,17 +4,8 @@ import { useTheme } from "../composables/theme"
 import { WDropdown, WMenu, WButton } from "vue-windi";
 import { IconColorSwatch } from "./icons";
 
-const { isTheme, changeTheme } = useTheme()
+const { changeTheme } = useTheme()
 
-console.log(isTheme.value)
-
-const selectedColor = ref("theme-default");
-
-function changeColor(color: string) {
-  document.documentElement.classList.remove(selectedColor.value);
-  selectedColor.value = color;
-  document.documentElement.classList.add(color);
-}
 </script>
 <template>
   <WDropdown placement="bottom-end">
