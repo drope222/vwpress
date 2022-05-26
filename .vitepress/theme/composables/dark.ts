@@ -2,8 +2,6 @@ import { ref, onMounted } from "vue"
 
 const isDark = ref<boolean>(false)
 
-const isBrowser = () => typeof window !== "undefined"
-
 const setDark = () => {
     const html = document.getElementsByTagName("html")[0];    
     html.classList.remove(isDark.value ? 'dark' : 'light');
