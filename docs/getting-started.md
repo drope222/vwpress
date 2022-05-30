@@ -6,7 +6,7 @@ import { WButton } from "vue-windi"
 
 ## Install
 
-Install the package
+Example of installation code
 
 ```js
 npm i vue-windi
@@ -14,48 +14,39 @@ npm i vue-windi
 
  <br />
 
-Then add vueWindi to your windi.config.js files:
+Some javascript code
 
 ```js
-import vueWindi from "vue-windi/plugin";
+function sum(x, y) {
 
-export default {
-  darkMode: "class",
-  plugins: [vueWindi],
-};
+    return x + y;
+
+}
 ```
 
-## Import component
+## Html button
 
- <br />
 
-Import button component
-
-```vue
-<script>
-import { WButton } from "vue-windi";
-</script>
-```
-
-## Button component
-
-Button component
-<br /> <br />
-
- <div class="flex flex-wrap gap-3">
-
-<WButton>Submit</WButton>  
-<WButton loading>Loading</WButton>
-<WButton disabled> Disabled </WButton>
-<WButton variant="outline">Outline</WButton>
-<WButton variant="transparent">Transparent</WButton>
-
+ ```html
+<div>
+  <button> Submit </button>  
 </div>
-
-```vue
-<WButton>Submit</WButton>
-<WButton loading>Loading</WButton>
-<WButton disabled>Disabled</WButton>
-<WButton variant="outline">Outline</WButton>
-<WButton variant="transparent">Transparent</WButton>
 ```
+
+
+## Vue component
+
+
+ ```vue
+ <script setup>
+ import { ref } from "vue"
+ const something = ref('test')
+ </script>
+<template>
+  <div>
+      {{ something }}
+  </div>
+</template>
+```
+
+
