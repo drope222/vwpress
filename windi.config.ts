@@ -9,8 +9,8 @@ export default defineConfig({
     plugins: [vueWindi],
     vueWindi: {
         themes: [
-          "blue",
           "teal",
+          "blue",
           "rose",
           "violet",
           "orange",
